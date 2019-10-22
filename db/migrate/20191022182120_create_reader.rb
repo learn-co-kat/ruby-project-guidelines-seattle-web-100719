@@ -1,4 +1,4 @@
-class CreateReader < ActiveRecord::Migration[5.0]
+class CreateReader < ActiveRecord::Migration[4.2]
   def change
     create_table :readers do |t|
       t.string :name
