@@ -6,19 +6,25 @@ csv_text = File.read("./db/goodreads_library_books.csv")
 booklist = CSV.parse(csv_text, :headers => true)
 
 booklist.each do |row|
-    puts row
+    title = row["Title"]
+    author = row["Author"]
+    average_rating = row["Average Rating"]
+    publisher = row["Publisher"]
+    number_of_pages = row["Number of Pages"]
+    year_published = row["Year Published"]
+    shelf = row["Exclusive Shelf"]
+    # date_added = row["Date Added"]
+    
+    Book.create(title: title, author: author, average_rating: average_rating, publisher: publisher, number_of_pages: number_of_pages, year_published: year_published, shelf: shelf)
+
 end
 
-# booklist.each do |book|
-#     Book.create(book.to_h)   
-# end 
-
-# require 'csv'    
-
-# csv_text = File.read('...')
-# csv = CSV.parse(csv_text, :headers => true)
-# csv.each do |row|
-#   Moulding.create!(row.to_hash)
-# end
+# all_my_books.each do |book|
+#     title = book["volumeInfo"]["title"]
+#     published_date = book["volumeInfo"]["publishedDate"]
+#     desc = book["volumeInfo"]["description"]
+#     Book.create(title: title, published_date: published_date , description: desc)
+#     # binding.pry
+#   end
 
 binding.pry
