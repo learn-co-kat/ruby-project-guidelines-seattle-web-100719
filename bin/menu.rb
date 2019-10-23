@@ -11,6 +11,7 @@ class Menu
         end
 
         puts "Hi #{input}! Tell me what you'd like to do:"
+        Reader.new_reader(input)
         puts "Press 1 to add a book to your reading list."
         puts "Press 2 to add one of our tops books to your reading list."
         puts "Press 3 to see your new reading list."
