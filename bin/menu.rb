@@ -1,17 +1,13 @@
-# require_relative '../config/environment's
+# require_relative '../config/environment'
 
 class Menu
 
     def start
-        puts "Welcome to Bibliophilia! What is your name?"
-        input = gets.chomp
-        
-        def new_reader #creates new reader
-            Reader.create(name: input) 
-        end
+        puts "Welcome to Bibliophilia! What's your name?"
+        name = gets.chomp
 
-        puts "Hi #{input}! Tell me what you'd like to do:"
-        Reader.new_reader(input)
+        puts "Hi #{name}! What would you like to do:"
+        Reader.new_reader(name) 
         puts "Press 1 to add a book to your reading list."
         puts "Press 2 to add one of our tops books to your reading list."
         puts "Press 3 to see your new reading list."

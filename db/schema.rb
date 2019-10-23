@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_23_225010) do
+ActiveRecord::Schema.define(version: 2019_10_23_233515) do
 
   create_table "books", force: :cascade do |t|
     t.string "title"
@@ -28,9 +28,8 @@ ActiveRecord::Schema.define(version: 2019_10_23_225010) do
   end
 
   create_table "reading_lists", force: :cascade do |t|
-    t.text "name"
-    t.text "book"
-    t.text "author"
+    t.integer "book_id"
+    t.integer "reader_id"
   end
 
 end
