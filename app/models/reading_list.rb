@@ -5,8 +5,8 @@ class ReadingList < ActiveRecord::Base
     belongs_to :book
     belongs_to :reader
 
-    def self.new_list(reader, book)
-        ReadingList.create(book_id: book.id, reader_id: reader.id)
+    def self.new_list(reader, book, shelf)
+        ReadingList.create(book_id: book.id, reader_id: reader.id, shelf: shelf)
     end 
 
     def self.get_reading_list_by_reader_id(id) 

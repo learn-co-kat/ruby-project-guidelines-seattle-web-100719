@@ -22,7 +22,7 @@ class Menu
         puts "Hi #{name}! What would you like to do:"
         new_reader = Reader.find_or_create_reader(name) 
 
-        while true do2
+        while true do
 
             puts ""
             puts "1. Add a book to your reading list."
@@ -39,8 +39,9 @@ class Menu
                 title = gets.chomp
                 puts "Awesome! Who's the author?"
                 author = gets.chomp
-                new_book = Book.new_book(title, author)
-                ReadingList.new_list(new_reader, new_book)
+                shelf = "to-read"
+                new_book = Book.new_book(title, author, shelf)
+                ReadingList.new_list(new_reader, new_book, shelf)
                 puts ""
                 puts "Thanks! Your book was added to your reading list."
 
