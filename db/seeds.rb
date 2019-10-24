@@ -25,4 +25,4 @@ readerlist.each do |row|
     Reader.create(name: name)
 end 
 
-binding.pry
+# binding.pry

@@ -53,13 +53,10 @@ class Menu
                     puts ""
                     puts my_list
 
-            elsif (choice) == 4 #use find_by method by?
+            elsif (choice) == 4
                 puts "Enter the title of a book you've read:"
                 book_title = gets.chomp
-                book_to_update_id = Book.all.find { |book| book.title == book_title }.id 
-                
-                variable = ReadingList.all.filter { |list| list.reader_id == new_reader.id} 
-                    .find { |list| list.book_id == book_to_update_id }
+                variable = Book.find_by(title: book_title)
                     
                 if variable == nil 
                     puts ""
