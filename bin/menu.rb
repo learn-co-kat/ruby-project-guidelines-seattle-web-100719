@@ -10,9 +10,8 @@ class Menu
         new_reader = Reader.find_or_create_reader(name) 
         puts "Press 1 to add a book to your reading list."
         puts "Press 2 to view our tops books."
-        puts "Press 3 to see your new reading list."
-        puts "Press 4 if you'd like to see cool stats about our books."
-        puts "Press 5 to delete your account." 
+        puts "Press 3 to see your reading list."
+        puts "Press 4 to delete your account." 
         choice = gets.chomp.to_i
 
         if (choice) == 1
@@ -24,20 +23,21 @@ class Menu
             ReadingList.new_list(new_reader, new_book)
             puts "Thanks! Your book was added to your reading list."
 
-        elsif (choice) == 2
+        elsif (choice) == 2 #prints multiple first books
             puts "Here are our top 15 books!"
             sorted_books = Book.books_sorted[0..14]
-            binding.pry
+                .map { |books| books.pretty_format_extended }
+            puts sorted_books
             
+        elsif (choice) == 3
+            my_list = ReadingList.get_reading_list_by_reader_id(new_reader.id) 
+                .map { |book_id| Book.find_book(book_id) }
+                .map { |book| book.pretty_format }
+            puts my_list
+
         elsif (choice) == 4
-
-        
-        elsif (choice) == 4
-
-
-        elsif (choice) == 5
-
-
+            Reader.delete(new_reader.id) 
+            puts "Your user account has been deleted."
         end 
     end
 end
