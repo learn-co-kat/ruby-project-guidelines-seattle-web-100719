@@ -20,7 +20,7 @@ class Book < ActiveRecord::Base
     end
 
     def pretty_format
-        "Title: #{title}, Author: #{author}"
+        "Title: #{title}, Author: #{author}, Shelf: #{shelf}"
     end
 
     def self.find_book(id)

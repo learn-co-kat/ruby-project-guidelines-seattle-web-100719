@@ -3,6 +3,13 @@
 class Menu
 
     def start
+
+        # Book.destroy_all
+        # ReadingList.destroy_all
+        # Reader.destroy_all
+
+        #after DESTROYING ALL - comment out the above and run rake db:seed
+
         ReadingList.populate_jenn_katrina_books 
         
         puts ""
@@ -21,7 +28,7 @@ class Menu
             puts "1. Add a book to your reading list."
             puts "2. View our tops books."
             puts "3. See your reading list."
-            puts "4. You read a book! Congrats. Update your book's status."
+            puts "4. You finished a book! Congrats. Update your book's status."
             puts "5. Delete your account." 
             puts "6. Show all readers."
             puts "7. Exit."
@@ -60,9 +67,12 @@ class Menu
                     puts ""
                     puts "No such book. Go to the library."
                 else
-                    variable.update(shelf: read)
+                    variable.update(shelf: "read")
                     puts ""
-                    puts "Your reading list has been updated!" #show updated list
+                    puts "Your reading list has been updated!" 
+                    puts ""
+                    # puts "Here's your updated list:"
+                    # puts my_list
                 end 
 
             elsif (choice) == 5

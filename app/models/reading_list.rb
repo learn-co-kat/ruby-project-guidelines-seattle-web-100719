@@ -16,11 +16,11 @@ class ReadingList < ActiveRecord::Base
     end 
 
     def self.populate_jenn_katrina_books        
-        Reader.create(name: "Jenn")
-        Reader.create(name: "Katrina")
+        Reader.find_or_create_by(name: "Jenn")
+        Reader.find_or_create_by(name: "Katrina")
 
-        kat_books = Book.all.select { |book| book.id < 155 && book.shelf == "to-read"}
-        jenn_books = Book.all.select { |book| book.id >154 && book.shelf == "to-read"}
+        kat_books = Book.all.select { |book| book.id < 30 && book.shelf == "to-read"}
+        jenn_books = Book.all.select { |book| book.id > 650 && book.shelf == "to-read"}
 
         kat_id = Reader.all.find_by(name: "Katrina").id 
         jenn_id = Reader.all.find_by(name: "Jenn").id
