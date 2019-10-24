@@ -4,8 +4,10 @@ class Menu
 
     def start
 
-        # Reader.destroy_all 
-        # Book.destroy_all
+        Reader.destroy_all 
+        Book.destroy_all
+        ReadingList.populate_jenn_katrina_books 
+        binding.pry
         
         puts ""
         puts ""
