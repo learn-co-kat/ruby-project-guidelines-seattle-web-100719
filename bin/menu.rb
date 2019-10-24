@@ -24,16 +24,16 @@ class Menu
             puts "Thanks! Your book was added to your reading list."
 
         elsif (choice) == 2
-            puts "You chose 2!"
+
         
         elsif (choice) == 4
-            puts "You chose 3!"
+
         
         elsif (choice) == 4
-            puts "You chose 4!"
+            
 
         elsif (choice) == 5
-            puts "You chose 5!"
+
 
         end 
     end
