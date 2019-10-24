@@ -9,6 +9,10 @@ class ReadingList < ActiveRecord::Base
         ReadingList.create(book_id: book.id, reader_id: reader.id, shelf: shelf)
     end 
 
+    def pretty_format
+        "Title: #{self.title}, Author: #{self.author}, Shelf: #{self.shelf}"
+    end
+
     def self.get_reading_list_by_reader_id(id) 
         self.all
         .filter { |list| list.reader_id == id }
@@ -19,8 +23,8 @@ class ReadingList < ActiveRecord::Base
         Reader.find_or_create_by(name: "Jenn")
         Reader.find_or_create_by(name: "Katrina")
 
-        kat_books = Book.all.select { |book| book.id < 30 && book.shelf == "to-read"}
-        jenn_books = Book.all.select { |book| book.id > 650 && book.shelf == "to-read"}
+        kat_books = Book.all.select { |book| book.id < 30}
+        jenn_books = Book.all.select { |book| book.id > 650}
 
         kat_id = Reader.all.find_by(name: "Katrina").id 
         jenn_id = Reader.all.find_by(name: "Jenn").id

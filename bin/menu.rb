@@ -40,7 +40,7 @@ class Menu
                 puts "Awesome! Who's the author?"
                 author = gets.chomp
                 shelf = "to-read"
-                new_book = Book.new_book(title, author, shelf)
+                new_book = Book.new_book(title, author)
                 ReadingList.new_list(new_reader, new_book, shelf)
                 puts ""
                 puts "Thanks! Your book was added to your reading list."
@@ -53,14 +53,15 @@ class Menu
                 puts sorted_books
                 
             elsif (choice) == 3
-                my_list = ReadingList.get_reading_list_by_reader_id(new_reader.id) 
-                    .map { |book_id| Book.find_book(book_id) }
-                    .map { |book| book.pretty_format }
+                my_list = ReadingList.get_reading_list_by_reader_id(new_reader.id) #returns array of book ids
+                    .map { |book_id| Book.find_book(book_id) } #maps these books ids to books in my "Books table"
+                    .map { |book| book.pretty_format} #formats these books. Each "book" is author and title
+
                     puts ""
                     puts my_list
 
             elsif (choice) == 4
-                puts "Enter the title of a book you've read:"
+                puts "Enter the title of the book you've read:"
                 book_title = gets.chomp
                 variable = Book.find_by(title: book_title).id
 
@@ -69,11 +70,9 @@ class Menu
                     puts "No such book. Go to the library."
                 else
                     book_read = ReadingList.find_by(book_id: variable)
-                    book_read.update(shelf: 'read')
-                    puts ""
+                    book_read.shelf = "read"
                     puts "Your reading list has been updated!" 
-                    puts ""
-                end 
+                end
 
             elsif (choice) == 5
                 Reader.destroy(new_reader.id) 

@@ -13,9 +13,8 @@ booklist.each do |row|
     publisher = row["Publisher"]
     number_of_pages = row["Number of Pages"]
     year_published = row["Year Published"]
-    shelf = row["Exclusive Shelf"]
     
-    Book.create(title: title, author: author, average_rating: average_rating, publisher: publisher, number_of_pages: number_of_pages, year_published: year_published, shelf: shelf)
+    Book.create(title: title, author: author, average_rating: average_rating, publisher: publisher, number_of_pages: number_of_pages, year_published: year_published)
 end
 
 csv_reader = File.read("./db/reader_names.csv")

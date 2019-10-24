@@ -5,8 +5,8 @@ class Book < ActiveRecord::Base
     has_many :reading_lists
     has_many :readers, through: :reading_lists
 
-    def self.new_book(title, author, shelf)
-        Book.create(title: title, author: author, shelf: shelf)
+    def self.new_book(title, author)
+        Book.create(title: title, author: author)
     end
 
     def self.books_sorted
@@ -20,7 +20,7 @@ class Book < ActiveRecord::Base
     end
 
     def pretty_format
-        "Title: #{title}, Author: #{author}, Shelf: #{shelf}"
+        "Title: #{self.title}, Author: #{self.author}"
     end
 
     def self.find_book(id)
