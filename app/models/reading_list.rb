@@ -12,4 +12,5 @@ class ReadingList < ActiveRecord::Base
         .filter { |list| list.reader_id == id }
         .map { |mylist| mylist.book_id } 
     end 
+
 end 
