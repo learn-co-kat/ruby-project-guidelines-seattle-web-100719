@@ -15,22 +15,7 @@ class ReadingList < ActiveRecord::Base
         .map { |mylist| mylist.book_id } 
     end 
 
-    def self.populate_jenn_katrina_books
-        csv_text = File.read("./db/goodreads_library_books.csv")
-        booklist = CSV.parse(csv_text, :headers => true)
-
-        booklist.each do |row|
-        title = row["Title"]
-        author = row["Author"]
-        average_rating = row["Average Rating"]
-        publisher = row["Publisher"]
-        number_of_pages = row["Number of Pages"]
-        year_published = row["Year Published"]
-        shelf = row["Exclusive Shelf"]
-    
-    Book.create(title: title, author: author, average_rating: average_rating, publisher: publisher, number_of_pages: number_of_pages, year_published: year_published, shelf: shelf)
-end
-        
+    def self.populate_jenn_katrina_books        
         Reader.create(name: "Jenn")
         Reader.create(name: "Katrina")
 
