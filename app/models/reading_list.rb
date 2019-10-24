@@ -19,11 +19,11 @@ class ReadingList < ActiveRecord::Base
         Reader.create(name: "Jenn")
         Reader.create(name: "Katrina")
 
-        kat_books = Book.all.select { |book| book.id < 155}
-        jenn_books = Book.all.select { |book| book.id >154}
+        kat_books = Book.all.select { |book| book.id < 155 && book.shelf == "to-read"}
+        jenn_books = Book.all.select { |book| book.id >154 && book.shelf == "to-read"}
 
         kat_id = Reader.all.find_by(name: "Katrina").id 
-        jenn_id = Reader.all.find_by(name: "Katrina").id
+        jenn_id = Reader.all.find_by(name: "Jenn").id
 
         kat_books.each do |book|
             ReadingList.create(book_id: book.id, reader_id: kat_id, shelf: "read")

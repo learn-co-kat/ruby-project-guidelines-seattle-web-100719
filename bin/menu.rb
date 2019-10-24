@@ -4,7 +4,6 @@ class Menu
 
     def start
         ReadingList.populate_jenn_katrina_books 
-        binding.pry
         
         puts ""
         puts ""
@@ -38,7 +37,7 @@ class Menu
                 puts ""
                 puts "Thanks! Your book was added to your reading list."
 
-            elsif (choice) == 2 #prints multiple first books
+            elsif (choice) == 2 
                 puts "Here are our top 15 books!"
                 sorted_books = Book.books_sorted[0..14]
                     .map { |books| books.pretty_format_extended }
@@ -67,7 +66,7 @@ class Menu
                 end 
 
             elsif (choice) == 5
-                Reader.delete(new_reader.id) 
+                Reader.destroy(new_reader.id) 
                 puts "Your user account has been deleted."
 
             elsif (choice) == 6

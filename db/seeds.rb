@@ -1,6 +1,8 @@
 require 'csv'
 require 'pry'
 
+# Book.destroy_all 
+
 csv_text = File.read("./db/goodreads_library_books.csv")
 booklist = CSV.parse(csv_text, :headers => true)
 
