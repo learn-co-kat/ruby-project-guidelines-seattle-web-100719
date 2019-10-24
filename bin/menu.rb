@@ -63,17 +63,16 @@ class Menu
                 puts "Enter the title of a book you've read:"
                 book_title = gets.chomp
                 variable = Book.find_by(title: book_title)
+                book_id = variable.id 
                     
                 if variable == nil 
                     puts ""
                     puts "No such book. Go to the library."
                 else
-                    variable.update(shelf: "read")
+                    ReadingList.update(:shelf => 'read')
                     puts ""
                     puts "Your reading list has been updated!" 
                     puts ""
-                    # puts "Here's your updated list:"
-                    # puts my_list
                 end 
 
             elsif (choice) == 5
