@@ -6,4 +6,4 @@ tada = Menu.new()
 
 tada.start
 
-Pry.start
+# Pry.start
