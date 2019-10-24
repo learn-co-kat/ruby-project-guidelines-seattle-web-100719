@@ -4,10 +4,12 @@ class Menu
 
     def start
 
-        Reader.destroy_all 
-        Book.destroy_all
-
-        puts "Welcome to Bibliophilia!"
+        # Reader.destroy_all 
+        # Book.destroy_all
+        
+        puts ""
+        puts ""
+        puts "--- Welcome to Bibliophilia! ---   "
         puts ""
         puts "What's your name?"
         name = gets.chomp
@@ -18,13 +20,13 @@ class Menu
         while true do
 
             puts ""
-            puts "Press 1 to add a book to your reading list."
-            puts "Press 2 to view our tops books."
-            puts "Press 3 to see your reading list."
-            puts "You read a book! Congrats. Press 4 to update the book's status."
-            puts "Press 5 to delete your account." 
-            puts "Press 6 to show all readers."
-            puts "Press 7 to exit."
+            puts "1. Add a book to your reading list."
+            puts "2. View our tops books."
+            puts "3. See your reading list."
+            puts "4. You read a book! Congrats. Update your book's status."
+            puts "5. Delete your account." 
+            puts "6. Show all readers."
+            puts "7. Exit."
             choice = gets.chomp.to_i
 
             if (choice) == 1
@@ -51,7 +53,7 @@ class Menu
                     puts ""
                     puts my_list
 
-            elsif (choice) == 4 #use find_by method by????????
+            elsif (choice) == 4 #use find_by method by?
                 puts "Enter the title of a book you've read:"
                 book_title = gets.chomp
                 book_to_update_id = Book.all.find { |book| book.title == book_title }.id 
